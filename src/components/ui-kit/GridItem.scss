@@ -2,11 +2,15 @@
 
 .grid-item {
   padding: 10px;
-  min-width: 150px;
+  min-width: 160px;
   cursor: pointer;
+  -webkit-flex-basis: 160px; /* Safari 6.1+ */
+  flex-basis: 160px;
 
   .poster {
     width: 100%;
+    object-fit: scale-down;
+    max-height: 250px;
     margin-bottom: 6px;
     border-radius: 4px;
     transition: transform .2s;
