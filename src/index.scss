@@ -8,6 +8,11 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+a {
+  text-decoration: none;
+  color: $black;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
@@ -15,4 +20,23 @@ code {
 
 * {
   box-sizing: border-box;
+}
+
+::selection {
+  background: $yellow; /* WebKit/Blink Browsers */
+}
+::-moz-selection {
+  background: $yellow; /* Gecko Browsers */
+}
+
+.grid {
+  display: flex;
+  flex-wrap: no-wrap;
+  flex-direction: row;
+  padding: 8px 18px;
+  overflow-x: scroll;
+}
+
+.padded-content {
+  margin: 0 $global-margin-value;
 }

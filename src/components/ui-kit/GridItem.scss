@@ -1,0 +1,32 @@
+// Design Source: https://codepen.io/supah/pen/WwoYjO
+
+.grid-item {
+  padding: 10px;
+  min-width: 150px;
+  cursor: pointer;
+
+  .poster {
+    width: 100%;
+    margin-bottom: 6px;
+    border-radius: 4px;
+    
+    &.active {
+      opacity: 0;
+    }
+  }
+
+  .title {
+    color: #525661;
+    margin-bottom: 4px;
+    font-size: 16px;
+  }
+
+  .info {
+    font-size: 11px;
+    opacity: 0.8;
+  }
+
+  .desc {
+    display: none;
+  }
+}

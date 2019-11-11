@@ -1,0 +1,42 @@
+@import "../design/index.scss";
+
+.NormalLayout {
+  .navigation {
+    height: 92px;
+    border-bottom: 1px solid #eee;
+
+    ul {
+      padding: 33px 0 0 45px;
+    };
+    
+    li {
+      list-style: none;
+      float: left;
+      margin-right: 30px;	
+      
+      a {
+        font-weight: 600;
+        color: #333;
+        text-decoration: none;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        padding: 1rem;
+        
+        &:hover {
+          background-color: $yellow;
+          font-weight: 700;
+          color: $black;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+  
+  .NormalLayout__wrapper {
+    margin: $global-margin-value 0;
+  }
+}
+
+.center {
+  text-align: center;
+}

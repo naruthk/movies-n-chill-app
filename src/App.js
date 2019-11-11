@@ -5,6 +5,9 @@ import { Switch, Route } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
 
 import Home from "./pages/Home";
+import News from "./pages/News";
+import Details from "./pages/Details";
+import NotFound from './pages/NotFound';
 
 import dotenv from 'dotenv';
 dotenv.config();
@@ -15,11 +18,9 @@ const App = () => {
     <Router history={createBrowserHistory({})}>
       <Switch>
         <Route exact path="/" component={Home} />
-        {/* <Route exact path="/list" component={Home} />
-        <Route exact path="/list/:movieid" component={Details} />
-        <Route exact path="/about" component={About} />
-        <Route exact path="/faq" component={Faq} />
-        <Route path="*" component={NotFound} status={404} /> */}
+        <Route exact path="/details/:movieId" component={Details} />
+        <Route exact path="/news" component={News} />
+        <Route path="*" component={NotFound} status={404} />
       </Switch>
     </Router>
   );

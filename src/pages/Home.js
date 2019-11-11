@@ -1,14 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import tmdbInstance from "../utils/tmdbInstance";
-import newsInstance from "../utils/newsInstance";
 
-import EntertainmentNews from "../components/entertainment-news/EntertainmentNews";
+import NormalLayout from "../layouts/NormalLayout";
+import GridItem from "../components/ui-kit/GridItem";
 
 const Home = () => {
   const [filmsInTheaters, setFilmsInTheaters] = useState([]);
   const [trendingFilms, setTrendingFilms] = useState([]);
-  const [entertainmentNews, setEntertainmentNews] = useState([]);
-
   const fetchFilmsInTheaters = async () => {
     const response = await tmdbInstance.get("movie/now_playing", {
       params: { api_key: process.env.REACT_APP_TMDB_API_KEY }
@@ -18,37 +16,61 @@ const Home = () => {
   }
 
   const fetchTrendingFilms = async () => {
-    const response = await tmdbInstance.get("movie/now_playing", {
+    const response = await tmdbInstance.get("trending/all/week", {
       params: { api_key: process.env.REACT_APP_TMDB_API_KEY }
     });
     const { data } = response;
     setTrendingFilms(data && data.results);
   }
 
-  const fetchEntertainmentNews = async () => {
-    const response = await newsInstance.get("top-headlines?country=us&category=entertainment", 
-    {
-      params: { apiKey: process.env.REACT_APP_NEWSAPI_API_KEY }
-    });
-    const { data } = response;
-    setEntertainmentNews(data && data.articles);
-  }
-
   useEffect(() => {
     fetchFilmsInTheaters();
     fetchTrendingFilms();
-    fetchEntertainmentNews();
   }, [])
 
   return (
-    <div>
-      <h2>Currently Showing</h2>
-      {filmsInTheaters.map((item, index) => <li key={index}>{item.title}</li>)}
-      <h2>Trending</h2>
-      {trendingFilms.map((item, index) => <li key={index}>{item.title}</li>)}
-      <h2>Entertainment News</h2>
-      <EntertainmentNews news={entertainmentNews} />
-    </div>
+    <NormalLayout>
+      <h2 className="padded-content">Currently Showing</h2>
+      <section class="grid">
+        {filmsInTheaters.map(item => {
+          const id = item.id;
+          const photo = `${process.env.REACT_APP_TMDB_IMAGE_URI}${item.poster_path}`;
+          const title = item.title;
+          const subtitle = item.release_date;
+
+          return (
+            <GridItem
+              id={id}
+              key={id}
+              photo={photo}
+              title={title}
+              subtitle={subtitle}
+              isMovie
+            />
+          );
+        })}
+      </section>
+      <h2 className="padded-content">Trending</h2>
+      <section class="grid">
+        {trendingFilms.map(item => {
+          const id = item.id;
+          const photo = `${process.env.REACT_APP_TMDB_IMAGE_URI}${item.poster_path}`;
+          const title = item.title;
+          const subtitle = item.release_date;
+
+          return (
+            <GridItem
+              id={id}
+              key={id}
+              photo={photo}
+              title={title}
+              subtitle={subtitle}
+              isMovie
+            />
+          );
+        })}
+      </section>
+    </NormalLayout>
   );
 }
 

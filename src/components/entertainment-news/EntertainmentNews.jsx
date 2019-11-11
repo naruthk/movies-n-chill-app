@@ -14,7 +14,7 @@ const EntertainmentNews = props => {
     }
   }
 
-  const renderIndividualNewsBox = article => {
+  const renderIndividualNewsBox = (article, index) => {
     const {
       title,
       description,
@@ -30,7 +30,7 @@ const EntertainmentNews = props => {
     };
 
     return (
-      <div className="news-article card">
+      <div className="news-article card" key={index}>
         <div className="wrapper" style={backgroundImageStyle}>
           <div className="header">
             <div className="date">
