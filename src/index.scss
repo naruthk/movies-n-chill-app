@@ -40,3 +40,13 @@ code {
 .padded-content {
   margin: $global-margin-value;
 }
+
+ul.unbulleted-list {
+  margin: 0;
+
+  li {
+    list-style: none;
+    display: inline;
+    margin-right: 30px;	
+  }
+}

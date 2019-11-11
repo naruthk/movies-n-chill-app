@@ -9,9 +9,14 @@
     width: 100%;
     margin-bottom: 6px;
     border-radius: 4px;
+    transition: transform .2s;
     
     &.active {
       opacity: 0;
+    }
+
+    &:hover {
+      transform: scale(1.1);
     }
   }
 

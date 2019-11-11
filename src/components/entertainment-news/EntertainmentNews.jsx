@@ -1,4 +1,6 @@
 import React from 'react';
+import LazyLoad from 'react-lazyload';
+
 import "./EntertainmentNews.scss";
 
 const EntertainmentNews = props => {
@@ -30,27 +32,29 @@ const EntertainmentNews = props => {
     };
 
     return (
-      <div className="news-article card" key={index}>
-        <div className="wrapper" style={backgroundImageStyle}>
-          <div className="header">
-            <div className="date">
-              <span className="day">{day}</span>
-              <span className="month">/{month}</span>
-              <span className="year">/{year}</span>
+      <LazyLoad height={200}>
+        <div className="news-article card" key={index}>
+          <div className="wrapper" style={backgroundImageStyle}>
+            <div className="header">
+              <div className="date">
+                <span className="day">{day}</span>
+                <span className="month">/{month}</span>
+                <span className="year">/{year}</span>
+              </div>
             </div>
-          </div>
-          <div className="data">
-            <div className="content">
-              <span className="author">{author}</span>
-              <h2 className="title">
-                <a href={url} target="_blank" rel="noopener noreferrer">{title}</a>
-              </h2>
-              <p className="text">{description}</p>
-              <a href={url} target="_blank" rel="noopener noreferrer" className="button">Read more</a>
+            <div className="data">
+              <div className="content">
+                <span className="author">{author}</span>
+                <h2 className="title">
+                  <a href={url} target="_blank" rel="noopener noreferrer">{title}</a>
+                </h2>
+                <p className="text">{description}</p>
+                <a href={url} target="_blank" rel="noopener noreferrer" className="button">Read more</a>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      </LazyLoad>
     )
   };
 

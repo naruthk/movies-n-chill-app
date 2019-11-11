@@ -1,14 +1,14 @@
 import React, { Fragment } from 'react';
 
+import currency from "currency.js";
+
 import "./MovieDetails.scss";
 
 const IMAGE_PATH = "https://image.tmdb.org/t/p/original/";
 
 const MovieDetails = props => {
   const {
-    imdb_id,
     backdrop_path,
-    poster_path,
     homepage,
     budget,
     original_language,
@@ -40,14 +40,44 @@ const MovieDetails = props => {
         </div>
       </div>
       <section className="MovieDetails__full-details">
-      <ul class="flex-container">
-        <li class="flex-item">1</li>
-        <li class="flex-item">2</li>
-        <li class="flex-item">3</li>
-        <li class="flex-item">4</li>
-        <li class="flex-item">5</li>
-        <li class="flex-item">6</li>
-      </ul>
+        <ul className="flex-container">
+          <li className="flex-item">
+            {release_date}
+            <span className="detail-label">Release date</span>
+          </li>
+          <li className="flex-item">
+            {runtime} minutes 
+            {original_language && ` (${String(original_language).toUpperCase()})`}
+            <span className="detail-label">Runtime</span>
+          </li>
+          <li className="flex-item">
+            {vote_average} / 10 ({vote_count})
+            <span className="detail-label">Average Ratings</span>
+          </li>
+          <li className="flex-item">
+            {currency(budget, { 
+              separator: ',',
+              formatWithSymbol: true 
+            }).format()}
+            <span className="detail-label">Budget</span>
+          </li>
+          <li className="flex-item">
+            <a href={homepage} title={title}>{title}'s</a>
+            <span className="detail-label">Official Website</span>
+          </li>
+        </ul>
+      </section>
+      <section className="MovieDetails__full-details">
+        <ul className="unbulleted-list">
+          {production_companies && [...production_companies].map((company, index) => {
+            const { logo_path, name } = company;
+            return (
+              <li key={index}>
+                <img src={process.env.REACT_APP_TMDB_IMAGE_URI + logo_path} alt={name} className="production-companies-logo" />
+              </li>
+            );
+          })}
+        </ul>
       </section>
     </Fragment>
   );

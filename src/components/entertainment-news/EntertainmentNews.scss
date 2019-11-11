@@ -117,6 +117,7 @@
         }
       }
     }
+
     .header {
       @include cf;
       color: $white;
@@ -126,6 +127,7 @@
         font-size: 12px;
       }
     }
+
     .menu-content {
       float: right;
       li {
@@ -137,25 +139,32 @@
         opacity: 0;
       }
     }
+
     .data {
       color: $white;
       transform: translateY(calc(70px + 4em));
     }
+
     .title {
       a {
         color: $white;
       }
     }
+
     .button {
+      background-color: $black;
+      padding: 1em;
       display: block;
       width: 100px;
       margin: 2em auto 1em;
       text-align: center;
       font-size: 12px;
       color: $white;
+      text-transform: uppercase;
       line-height: 1;
       position: relative;
       font-weight: 700;
+
       &::after {
         content: '\2192';
         opacity: 0;
