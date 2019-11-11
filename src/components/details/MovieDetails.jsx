@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 
 import "./MovieDetails.scss";
 
@@ -22,24 +22,34 @@ const MovieDetails = props => {
     production_companies
   } = props.details;
 
-  console.log(props.details);
+  const backgroundImageStyle = {
+    background: backdrop_path ? `url(${IMAGE_PATH + backdrop_path}) center / cover no-repeat` : "#fff",
+    height: "43vh"
+  };
   
   return (
-    <main className="intro-section">
-      <div className="container">
-        <div className="intro">
+    <Fragment>
+      <div className="MovieDetails__container">
+        <div className="intro" style={backgroundImageStyle}>
           <h1 className="title"><span className="underline">{title}</span></h1>
-        </div>
-        <div className="image-holder">
-          <img src={IMAGE_PATH + backdrop_path} alt={title} />
         </div>
         <div className="padded-content">
           <div className="description">
-            <p><span className="tagline">{tagline}:</span>{overview}</p>
+            <p><span className="tagline">{tagline}</span>{overview}</p>
           </div>
         </div>
       </div>
-    </main>
+      <section className="MovieDetails__full-details">
+      <ul class="flex-container">
+        <li class="flex-item">1</li>
+        <li class="flex-item">2</li>
+        <li class="flex-item">3</li>
+        <li class="flex-item">4</li>
+        <li class="flex-item">5</li>
+        <li class="flex-item">6</li>
+      </ul>
+      </section>
+    </Fragment>
   );
 }
 

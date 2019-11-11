@@ -19,8 +19,6 @@ const GridItem = props => {
       <a
         href={`/details/${id}`}
         title={title}
-        target="_blank"
-        rel="noopener noreferrer"
       >
         {renderHTML}
       </a>

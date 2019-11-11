@@ -23,7 +23,7 @@ const News = () => {
 
   return (
     <NormalLayout>
-      <h2>Entertainment News</h2>
+      <h2 className="padded-content">Entertainment News</h2>
       <EntertainmentNews news={entertainmentNews} />
     </NormalLayout>
   );

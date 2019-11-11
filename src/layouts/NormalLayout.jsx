@@ -8,8 +8,6 @@ const NormalLayout = props => {
       <div className="navigation">
         <ul>
           <li><a href="/">Home</a></li>
-          <li><a href="/movies">Movies</a></li>
-          <li><a href="/shows">TV Shows</a></li>
           <li><a href="/news">News</a></li>      
           <li><a href="/compare">Compare</a></li>       
         </ul>		
