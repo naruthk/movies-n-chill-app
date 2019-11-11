@@ -1,6 +1,6 @@
 # Movies 'n' Chill
 
-Discover the latest news and updates about films and TV shows around the world. Check out trailers, casts, production information, and many more for your content right here at **Movies 'n' Chill**.
+Discover the latest news and updates about films and TV shows around the world. Check out trailers, casts, production information, and many more for your favorite content right here at **Movies 'n' Chill**.
 
 **Demo:** [https://movies-n-chill.herokuapp.com](https://movies-n-chill.herokuapp.com)
 
