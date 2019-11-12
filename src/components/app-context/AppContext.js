@@ -3,7 +3,7 @@ import Cookies from 'js-cookie';
 
 export const AppContext = createContext();
 
-const MAX_COMPARED_ITEM = 2;
+// const MAX_COMPARED_ITEM = 2;
 
 const AppProvider = props => {
   const [itemsToCompare, setItemsToCompare] = useState([]);
@@ -25,7 +25,7 @@ const AppProvider = props => {
     setItemsToCompare(splitAndConvertToArray(items));
   }, []);
 
-  const checkIfAlreadyInComparedList = item => {
+  const isInComparedList = item => {
     return itemsToCompare.indexOf(item) !== -1;
   }
 
@@ -36,7 +36,7 @@ const AppProvider = props => {
   */
   const addItemToCompare = item => {
     // Remove if the item aleady exists
-    if (checkIfAlreadyInComparedList(item)) {
+    if (isInComparedList(item)) {
       const filteredItems  = itemsToCompare.filter(existingItem =>
         existingItem !== item 
       );
@@ -48,9 +48,9 @@ const AppProvider = props => {
       return setItemsToCompare(splitAndConvertToArray(filteredItems));
     }
 
-    if (itemsToCompare.length >= MAX_COMPARED_ITEM) {
-      return alert("Cannot compare more than 2 content");
-    }
+    // if (itemsToCompare.length === MAX_COMPARED_ITEM) {
+    //   return alert("Cannot compare more than 2 content");
+    // }
 
     const addedItems  = [...itemsToCompare, item];
     Cookies.set("itemsToCompare", addedItems.toString());
@@ -61,7 +61,7 @@ const AppProvider = props => {
     <AppContext.Provider value={{
       itemsToCompare,
       addItemToCompare,
-      checkIfAlreadyInComparedList
+      isInComparedList
     }}>
       {props.children}
     </AppContext.Provider>

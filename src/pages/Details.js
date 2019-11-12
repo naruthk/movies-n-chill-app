@@ -15,7 +15,6 @@ const Details = props => {
   const [details, setDetails] = useState({});
   const [cast, setCast] = useState([]);
   const [crew, setCrew] = useState([]);
-  const [videos, setVideos] = useState({});
   const [news, setNews] = useState([]);
 
   useEffect(() => {
@@ -53,24 +52,6 @@ const Details = props => {
       }
     };
     fetchCastCrew();
-  }, []);
-
-  useEffect(() => {
-    async function fetchVideos() {
-      try {
-        const response = await tmdbInstance.get(`movie/${movieId}/videos`, {
-          params: {
-            api_key: process.env.REACT_APP_TMDB_API_KEY,
-            language: "en-US"
-          }
-        });
-        const { data } = response;
-        setVideos(data.results);
-      } catch (err) {
-        console.warn("Cannot find videos:", err);
-      }
-    };
-    fetchVideos();
   }, []);
 
   return (

@@ -26,7 +26,7 @@ const MovieDetails = props => {
     production_companies
   } = details;
 
-  const { addItemToCompare, checkIfAlreadyInComparedList } = useContext(AppContext);
+  const { addItemToCompare, isInComparedList } = useContext(AppContext);
 
   const backgroundImageStyle = {
     background: backdrop_path ? `url(${IMAGE_PATH + backdrop_path}) center / cover no-repeat` : "#fff",
@@ -39,9 +39,9 @@ const MovieDetails = props => {
         <div className="intro" style={backgroundImageStyle}>
           <div className="buttons" onClick={() => addItemToCompare(movieId)}>
             <i className="material-icons" >
-              {!checkIfAlreadyInComparedList(movieId) ? "library_add": "delete"}
+              {!isInComparedList(movieId) ? "library_add": "delete"}
             </i>
-            <span class="tooltip">{!checkIfAlreadyInComparedList(movieId) ? "Add to Compare List": "Remove from Compare List" }</span>
+            <span class="tooltip">{!isInComparedList(movieId) ? "Add to Compare List": "Remove from Compare List" }</span>
           </div>
           <h1 className="title"><span className="underline">{title}</span></h1>
         </div>

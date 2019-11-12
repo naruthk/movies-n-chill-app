@@ -1,0 +1,21 @@
+@import "../../design//variables.scss";
+
+.Compare__wrapper {
+  .flex-container {
+    display: flex;
+  }
+  .flex-item {
+    flex: 1;
+  }
+  .compare-selector  {
+    height: 2em !important;
+    padding: 10px;
+    border-bottom: 5px solid $yellow;
+    border: 1px solid #ddd;
+    border-radius: .3em;
+    padding: 1em 3.5em 1em 1.5em;
+		margin: 0;
+		display: block;
+    width: 100%;
+  }
+}

@@ -19,14 +19,16 @@ const GridItem = props => {
   );
 
   return (
-    isMovie ? (
-      <a
-        href={`/details/${id}`}
-        title={title}
-      >
-        {renderHTML}
-      </a>
-     ) : renderHTML
+    <div>
+      {isMovie ? (
+        <a
+          href={`/details/${id}`}
+          title={title}
+        >
+          {renderHTML}
+        </a>
+      ) : renderHTML}
+    </div>
   );
 }
 
