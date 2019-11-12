@@ -57,10 +57,16 @@ const AppProvider = props => {
     return setItemsToCompare(splitAndConvertToArray(addedItems));
   };
 
+  const clearCompareList = () => {
+    Cookies.remove("itemsToCompare");
+    return setItemsToCompare([]);
+  };
+
   return (
     <AppContext.Provider value={{
       itemsToCompare,
       addItemToCompare,
+      clearCompareList,
       isInComparedList
     }}>
       {props.children}

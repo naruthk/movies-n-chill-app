@@ -50,3 +50,22 @@ ul.unbulleted-list {
     margin-right: 30px;	
   }
 }
+
+.button__slick {
+  background: transparent;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  padding: 0.5rem 0;
+  border-bottom: 10px solid $yellow;
+  pointer: cursor;
+
+  &:hover {
+    border-bottom: 10px solid $bermuda;
+  }
+}
+
+.float-right {
+  float: right;
+  margin-right: 20px;
+}

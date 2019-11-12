@@ -9,9 +9,9 @@ import CompareDetails from "../components/compare/CompareDetails";
 
 import { AppContext } from "../components/app-context/AppContext";
 
-const Compare = props => {
+const Compare = () => {
 
-  const { itemsToCompare } = useContext(AppContext);
+  const { itemsToCompare, clearCompareList } = useContext(AppContext);
 
   const [details, setDetails] = useState([]);
   const [leftSelection, setLeftSelection] = useState(null);
@@ -41,6 +41,13 @@ const Compare = props => {
 
   return (
     <NormalLayout>
+      {itemsToCompare.length !== 0 && (
+        <button
+          className="button button__slick float-right"
+          onClick={clearCompareList}>
+          <i className="material-icons">delete</i> Clear all items
+        </button>
+      )}
       <h2 className="padded-content">Compare</h2>
       {itemsToCompare.length !== 0 ? (
         <Fragment>

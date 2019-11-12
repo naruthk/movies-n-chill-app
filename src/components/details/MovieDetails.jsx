@@ -26,23 +26,30 @@ const MovieDetails = props => {
     production_companies
   } = details;
 
-  const { addItemToCompare, isInComparedList } = useContext(AppContext);
+  const {
+    addItemToCompare,
+    isInComparedList
+   } = useContext(AppContext);
 
   const backgroundImageStyle = {
     background: backdrop_path ? `url(${IMAGE_PATH + backdrop_path}) center / cover no-repeat` : "#fff",
     height: "43vh"
   };
   
+  const renderButtons = !isInComparingMode && (
+    <div className="buttons" onClick={() => addItemToCompare(movieId)}>
+      <i className="material-icons" >
+        {!isInComparedList(movieId) ? "library_add": "delete"}
+      </i>
+      <span className="tooltip">{!isInComparedList(movieId) ? "Add to Compare List": "Remove from Compare List" }</span>
+    </div>
+  );
+
   return (
     <Fragment>
       <div className="MovieDetails__container">
         <div className="intro" style={backgroundImageStyle}>
-          {!isInComparingMode && <div className="buttons" onClick={() => addItemToCompare(movieId)}>
-            <i className="material-icons" >
-              {!isInComparedList(movieId) ? "library_add": "delete"}
-            </i>
-            <span className="tooltip">{!isInComparedList(movieId) ? "Add to Compare List": "Remove from Compare List" }</span>
-          </div>}
+          {renderButtons}
           <h1 className="title"><span className="underline">{title}</span></h1>
         </div>
         <div className="padded-content">
