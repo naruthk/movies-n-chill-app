@@ -7,6 +7,7 @@ import GridItem from "../components/ui-kit/GridItem";
 const Home = () => {
   const [filmsInTheaters, setFilmsInTheaters] = useState([]);
   const [trendingFilms, setTrendingFilms] = useState([]);
+
   const fetchFilmsInTheaters = async () => {
     const response = await tmdbInstance.get("movie/now_playing", {
       params: { api_key: process.env.REACT_APP_TMDB_API_KEY }
@@ -31,7 +32,7 @@ const Home = () => {
   return (
     <NormalLayout>
       <h2 className="padded-content">Currently Showing</h2>
-      <section class="grid">
+      <section className="grid">
         {filmsInTheaters.map(item => {
           const id = item.id;
           const photo = `${process.env.REACT_APP_TMDB_IMAGE_URI}${item.poster_path}`;
@@ -51,7 +52,7 @@ const Home = () => {
         })}
       </section>
       <h2 className="padded-content">Trending</h2>
-      <section class="grid">
+      <section className="grid">
         {trendingFilms.map(item => {
           const id = item.id;
           const photo = `${process.env.REACT_APP_TMDB_IMAGE_URI}${item.poster_path}`;

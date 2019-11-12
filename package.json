@@ -6,6 +6,7 @@
     "axios": "^0.19.0",
     "currency.js": "^1.2.2",
     "dotenv": "^8.2.0",
+    "js-cookie": "^2.2.1",
     "moment": "^2.24.0",
     "node-sass": "^4.13.0",
     "normalize.css": "^8.0.1",

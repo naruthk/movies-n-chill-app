@@ -1,12 +1,16 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useContext } from 'react';
 
 import currency from "currency.js";
+
+import { AppContext } from "../app-context/AppContext";
 
 import "./MovieDetails.scss";
 
 const IMAGE_PATH = "https://image.tmdb.org/t/p/original/";
 
 const MovieDetails = props => {
+  const { movieId, details } = props;
+
   const {
     backdrop_path,
     homepage,
@@ -20,7 +24,9 @@ const MovieDetails = props => {
     vote_average,
     vote_count,
     production_companies
-  } = props.details;
+  } = details;
+
+  const { addItemToCompare, checkIfAlreadyInComparedList } = useContext(AppContext);
 
   const backgroundImageStyle = {
     background: backdrop_path ? `url(${IMAGE_PATH + backdrop_path}) center / cover no-repeat` : "#fff",
@@ -31,6 +37,12 @@ const MovieDetails = props => {
     <Fragment>
       <div className="MovieDetails__container">
         <div className="intro" style={backgroundImageStyle}>
+          <div className="buttons" onClick={() => addItemToCompare(movieId)}>
+            <i className="material-icons" >
+              {!checkIfAlreadyInComparedList(movieId) ? "library_add": "delete"}
+            </i>
+            <span class="tooltip">{!checkIfAlreadyInComparedList(movieId) ? "Add to Compare List": "Remove from Compare List" }</span>
+          </div>
           <h1 className="title"><span className="underline">{title}</span></h1>
         </div>
         <div className="padded-content">

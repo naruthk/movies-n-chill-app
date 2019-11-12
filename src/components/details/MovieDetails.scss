@@ -33,6 +33,24 @@ $red: red;
         color: $black;
       }
     }
+
+    .buttons {
+      position: absolute;
+      background-color: $white;
+      padding: 10px;
+      top: 0;
+      right: 0;
+      text-align: center;
+      cursor: pointer;
+    }
+
+    .tooltip {
+      display: block;
+      font-size: 14px;
+      line-height: 20px;
+      height: 20px;
+    }
+    
   }
 
   .description {

@@ -7,7 +7,7 @@ const GridItem = props => {
   const { id, title, subtitle, photo, isMovie } = props;
 
   const renderHTML = (
-    <LazyLoad height={200}>
+    <LazyLoad height={200} key={id}>
       <div className="grid-item">
         <img src={photo} alt={title} className="poster" />
         <div className="title">{title}</div>

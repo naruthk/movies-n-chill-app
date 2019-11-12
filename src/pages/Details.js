@@ -11,7 +11,7 @@ import MovieNews from "../components/details/MovieNews";
 
 const Details = props => {
   const movieId = props.match.params.movieId;
-  
+
   const [details, setDetails] = useState({});
   const [cast, setCast] = useState([]);
   const [crew, setCrew] = useState([]);
@@ -75,7 +75,7 @@ const Details = props => {
 
   return (
     <NormalLayout>
-      <MovieDetails details={details} />
+      <MovieDetails movieId={movieId} details={details} />
       <MovieCastCrew cast={cast} crew={crew} />
       <MovieNews news={news} />
     </NormalLayout>

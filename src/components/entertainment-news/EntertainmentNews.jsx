@@ -32,7 +32,7 @@ const EntertainmentNews = props => {
     };
 
     return (
-      <LazyLoad height={200}>
+      <LazyLoad height={200} key={index}>
         <div className="news-article card" key={index}>
           <div className="wrapper" style={backgroundImageStyle}>
             <div className="header">
