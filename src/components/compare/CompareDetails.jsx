@@ -7,22 +7,34 @@ import MovieDetails from "../details/MovieDetails";
 const CompareDetails = props => {
   const { leftSelection, rightSelection, options } = props;
 
-  const mapSelectionToDetails = selectedId => {
-    options.forEach(item => {
-      if (item.id === selectedId) {
-        return <MovieDetails details={item} />
+  const itemIndexLookup = selectedId => {
+    let updatedIndex = -1;
+    options.forEach((item, index) => {
+      if (item.id === Number(selectedId)) {
+        updatedIndex = index;
       }
     });
+    return updatedIndex;
+  };
+
+  const mapSelectionToDetails = selectedId => {
+    const index = itemIndexLookup(selectedId);
+    return (
+      <MovieDetails
+        details={options[index]}
+        isInComparingMode={true}
+      />
+    );
   }
 
   return (
     <div className="Compare__wrapper">
       <div className="flex-container">
         <div className="flex-item">
-          {mapSelectionToDetails(leftSelection)}
+          {leftSelection && mapSelectionToDetails(leftSelection)}
         </div>
         <div className="flex-item">
-          {mapSelectionToDetails(rightSelection)}
+          {rightSelection && mapSelectionToDetails(rightSelection)}
         </div>
       </div>
     </div>

@@ -8,10 +8,12 @@
     flex: 1;
   }
   .compare-selector  {
-    height: 2em !important;
+    height: 50px !important;
+    font-size: 20px;
+    font-weight: bold;
     padding: 10px;
-    border-bottom: 5px solid $yellow;
-    border: 1px solid #ddd;
+    border: 1px solid $yellow;
+    background-color: $yellow;
     border-radius: .3em;
     padding: 1em 3.5em 1em 1.5em;
 		margin: 0;

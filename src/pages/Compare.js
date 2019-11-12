@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useState, useEffect, useContext }  from 'react';
+import React, { Fragment, useState, useEffect, useContext }  from 'react';
 
 import tmdbInstance from "../utils/tmdbInstance";
 
@@ -42,15 +42,28 @@ const Compare = props => {
   return (
     <NormalLayout>
       <h2 className="padded-content">Compare</h2>
-      <CompareSelector
-        options={details}
-        handleSelection={handleSelection}
-      />
-      <CompareDetails
-        options={details}
-        leftSelection={leftSelection}
-        rightSelection={rightSelection}
-      />
+      {itemsToCompare.length !== 0 ? (
+        <Fragment>
+          <CompareSelector
+            options={details}
+            handleSelection={handleSelection}
+          />
+          <CompareDetails
+            options={details}
+            leftSelection={leftSelection}
+            rightSelection={rightSelection}
+          />
+        </Fragment>
+      ) : (
+        <div className="center">
+          <h4>Add items to compare!</h4>
+          <img
+            src={"../../assets/images/theaters.svg"}
+            alt="Theaters"
+            width="500px"
+          />
+        </div>
+      )}
     </NormalLayout>
   );
 }

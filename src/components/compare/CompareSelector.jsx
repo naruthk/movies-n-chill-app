@@ -7,7 +7,8 @@ const CompareSelector = props => {
 
   const renderHTML = name => (
     <div className="flex-item padded-content">
-      <select name={name} className="compare-selector" onClick={handleSelection}>
+      <select name={name} className="compare-selector" onChange={handleSelection}>
+        <option defaultValue value={"Choose"}>Choose content to compare!</option>
         {
           options.map(item => <option key={item.title} value={item.id}>{item.title}</option>)
         }

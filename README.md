@@ -32,6 +32,10 @@ Run `npm build` or `yarn build` to compile and build all necessary scripts and a
 * [React.js](https://github.com/facebook/react) - A JavaScript library for building user interfaces
 * [Axios](https://github.com/axios/axios) - Promise based HTTP client
 
+### Icons
+
+* [Theater Icon Vector](https://www.freevector.com/free-theatre-icon-vector-24830)
+
 ## Authors
 
 * **Naruth Kongurai** - [naruthk.com](https://narutk.com)
