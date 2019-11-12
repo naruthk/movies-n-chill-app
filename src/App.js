@@ -10,6 +10,7 @@ import Home from "./pages/Home";
 import News from "./pages/News";
 import Details from "./pages/Details";
 import Compare from "./pages/Compare";
+import Interesting from './pages/Interesting';
 import NotFound from './pages/NotFound';
 
 import dotenv from 'dotenv';
@@ -24,6 +25,7 @@ const App = () => {
           <Route exact path="/details/:movieId" component={Details} />
           <Route exact path="/compare" component={Compare} />
           <Route exact path="/news" component={News} />
+          <Route exact path="/interesting" component={Interesting} />
           <Route path="*" component={NotFound} status={404} />
         </Switch>
       </Router>

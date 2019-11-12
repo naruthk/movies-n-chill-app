@@ -20,6 +20,7 @@ const NormalLayout = props => {
               </i>
             </a>
           </li>
+          <li><a href="/interesting">Interesting</a></li>
         </ul>		
       </div>
       <div className="NormalLayout__wrapper">
