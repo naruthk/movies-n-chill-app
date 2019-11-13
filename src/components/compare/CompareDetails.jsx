@@ -74,7 +74,7 @@ const CompareDetails = props => {
 
 
   return (
-    leftSelection || rightSelection) && (
+    (leftSelection || rightSelection) && (
       <div className="Compare__wrapper">
         {/* BASIC INFO */}
         <div className="flex-container">
@@ -112,8 +112,8 @@ const CompareDetails = props => {
             {rightSelection && renderGenres(rightSelection)}
           </div>
         </div>
-      )
-    </div>
+      </div>
+    )
   );
 }
 
