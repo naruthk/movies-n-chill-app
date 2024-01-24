@@ -36,10 +36,6 @@ Run `npm build` or `yarn build` to compile and build all necessary scripts and a
 
 * [Theater Icon Vector](https://www.freevector.com/free-theatre-icon-vector-24830)
 
-## Authors
-
-* **Naruth Kongurai** - [naruthk.com](https://narutk.com)
-
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
